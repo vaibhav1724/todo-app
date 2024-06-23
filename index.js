@@ -41,7 +41,7 @@ app.put('/completed', async (req,res)=>{
         })
         return
     }
-    await todo.update({
+    await todo.findOneAndUpdate({
         _id : req.body.id
     }, {
         completed : true
