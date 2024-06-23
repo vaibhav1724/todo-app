@@ -25,5 +25,11 @@ app.get('/todos', (req,res)=>{
 app.put('/completed', (req,res)=>{
     const updatePayload = req.body
     const parsedPayload = updateTodo.safeParse(updatePayload)
+    if(!parsedPayload.success){
+        res.status(411).json({
+            msg : "You sent wrong inputs"
+        })
+        return
+    }
 })
 
